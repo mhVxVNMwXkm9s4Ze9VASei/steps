@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const messages = [
 	"Learn React ⚛️",
 	"Apply for jobs 💼",
@@ -5,14 +7,14 @@ const messages = [
 ];
 
 export default function App() {
-	const step = 2;
+	const [step, setStep] = useState(1);
 
 	function handleNext() {
-		alert("Next.");
+		setStep(step < messages.length ? step + 1 : step);
 	}
 
 	function handlePrevious() {
-		alert("Previous.");
+		setStep(step > 1 ? step - 1 : step);
 	}
 
 	return (
