@@ -11,18 +11,18 @@ export default function App() {
 	const [isOpen, setIsOpen] = useState(true);
 
 	function handleNext() {
-		setStep(step < messages.length ? step + 1 : step);
+		setStep((step) => (step < messages.length ? step + 1 : step));
 	}
 
 	function handlePrevious() {
-		setStep(step > 1 ? step - 1 : step);
+		setStep((step) => (step > 1 ? step - 1 : step));
 	}
 
 	return (
 		<>
 			<button
 				className="close"
-				onClick={() => setIsOpen(!isOpen)}
+				onClick={() => setIsOpen((isOpen) => !isOpen)}
 			>
 				&times;
 			</button>
