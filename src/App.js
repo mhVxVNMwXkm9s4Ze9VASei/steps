@@ -10,7 +10,7 @@ export default function App() {
 	return (
 		<div>
 			<Steps />
-			<Steps />
+			{/* <Steps /> */}
 		</div>
 	);
 }
@@ -46,21 +46,32 @@ function Steps() {
 						Step {step}: {messages[step - 1]}
 					</p>
 					<div className="buttons">
-						<button
-							style={{ backgroundColor: "#7950f2", color: "#fff" }}
-							onClick={handlePrevious}
+						<Button
+							onClickHandler={handlePrevious}
+							styling={{ backgroundColor: "#7950f2", color: "#fff " }}
 						>
-							Previous
-						</button>
-						<button
-							style={{ backgroundColor: "#7950f2", color: "#fff" }}
-							onClick={handleNext}
+							<span>👈</span> Previous
+						</Button>
+						<Button
+							onClickHandler={handleNext}
+							styling={{ backgroundColor: "#7950f2", color: "#fff " }}
 						>
-							Next
-						</button>
+							Next <span>👉</span>
+						</Button>
 					</div>
 				</div>
 			)}
 		</div>
+	);
+}
+
+function Button({ children, onClickHandler, styling }) {
+	return (
+		<button
+			style={styling}
+			onClick={onClickHandler}
+		>
+			{children}
+		</button>
 	);
 }
